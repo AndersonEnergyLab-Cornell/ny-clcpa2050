@@ -19,9 +19,9 @@ for ct in countycodes:
 	elec = 0
 	total_heat = 0
 	for tp in restype:
-		path = Path('resloadny/'+ct+'-'+tp+'.csv')
+		path = Path('Data/Load/resloadny/'+ct+'-'+tp+'.csv')
 		if path.is_file():
-			df = pd.read_csv('resloadny/'+ct+'-'+tp+'.csv')
+			df = pd.read_csv('Data/Load/resloadny/'+ct+'-'+tp+'.csv')
 			df['timestamp'] = pd.to_datetime(df['timestamp'])
 			df.set_index('timestamp', inplace=True)
 			Nunits = df['units_represented'].values[1]
@@ -35,7 +35,7 @@ for ct in countycodes:
 				model = pickle.load(f)
 			elec = elec + model(heat)*Nunits
 			total_heat = total_heat+heat*Nunits
-	# np.savetxt('resloadny/FittedElecLoad/FittedElecLoad_'+ct+'-'+tp+'.txt',elec)
+	# np.savetxt('Data/Load/resloadny/FittedElecLoad/FittedElecLoad_'+ct+'-'+tp+'.txt',elec)
 			# hourly_df_sub = hourly_df[['out.electricity.total.energy_consumption','out.fuel_oil.total.energy_consumption','out.natural_gas.total.energy_consumption','out.propane.total.energy_consumption']]
 			# # hourly_df.plot(y='out.natural_gas.total.energy_consumption')
 			# new_columns = {'out.electricity.total.energy_consumption': 'elec_'+tp, 'out.fuel_oil.total.energy_consumption': 'oil_'+tp, 'out.natural_gas.total.energy_consumption': 'gas_'+tp, 'out.propane.total.energy_consumption': 'propane_'+tp }
@@ -45,8 +45,8 @@ for ct in countycodes:
 
 		else:
 			continue
-	np.savetxt('resloadny/FittedElecLoad/FittedElecLoad_'+ct+'.txt',elec)
-	np.savetxt('resloadny/HeatLoad/Heatload'+ct+'.txt',total_heat)
+	np.savetxt('Data/Load/resloadny/FittedElecLoad/FittedElecLoad_'+ct+'.txt',elec)
+	np.savetxt('Data/Load/resloadny/HeatLoad/Heatload'+ct+'.txt',total_heat)
 	total_elec = total_elec + elec 
 total_elec = total_elec/1000
-np.savetxt('resloadny/FittedElecLoad.txt',total_elec)
+np.savetxt('Data/Load/resloadny/FittedElecLoad.txt',total_elec)

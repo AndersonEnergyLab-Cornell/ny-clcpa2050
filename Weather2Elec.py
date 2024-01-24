@@ -21,12 +21,12 @@ counties = tt['nhgis_county_gisjoin'].unique()
 
 for ct in counties:
 	print(ct)
-	weather = pd.read_csv('resloadny/tmy3weather/'+ct+'_tmy3.csv')
-# weather = pd.read_csv('resloadny/weather/G3600010_tmy3.csv')
+	weather = pd.read_csv('Data/Load/resloadny/tmy3weather/'+ct+'_tmy3.csv')
+# weather = pd.read_csv('Data/Load/resloadny/weather/G3600010_tmy3.csv')
 	weather['date_time'] = pd.to_datetime(weather['date_time'])
 	weather['hour_of_day'] = weather['date_time'].dt.hour
 	ct = 'g'+ct[1:]
-	elecload = np.loadtxt('resloadny/FittedElecLoad/FittedElecLoad_'+ct+'.txt')
+	elecload = np.loadtxt('Data/Load/resloadny/FittedElecLoad/FittedElecLoad_'+ct+'.txt')
 	
 	x = weather.to_numpy()
 	x = x[:,1:]
@@ -89,10 +89,10 @@ for ct in counties:
 	ax.text(0.25*int(np.max(y_test)), 0.5*int(np.max(y_test)), 'r2_train = '+str(r2_train), fontsize=10, color='black', ha='center', va='center')
 	
 	# plt.show()
-	plt.savefig('resloadny/W2Eplots/'+ct+'.png')
+	plt.savefig('Data/Load/resloadny/W2Eplots/'+ct+'.png')
 	plt.close(fig)
 	# save the model to disk
-	filename = 'resloadny/annWeather2Elec/annw2e_'+ct+'_model.sav'
+	filename = 'Data/Load/resloadny/annWeather2Elec/annw2e_'+ct+'_model.sav'
 	pickle.dump(model, open(filename, 'wb'))
 
 

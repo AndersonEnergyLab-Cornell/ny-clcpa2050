@@ -10,12 +10,12 @@ allY = 0
 totalY = 0
 hometype = ['mobile_home','multi-family_with_5plus_units','multi-family_with_2_-_4_units','single-family_attached','single-family_detached']
 for ht in hometype:
-	df = pd.read_csv('resloadny/update'+str(update)+'/up0'+str(update)+'-ny-'+ht+'.csv')
-# df = pd.read_csv('resloadny/update8/up08-ny-single-family_detached.csv')
-# df = pd.read_csv('resloadny/update8/up08-ny-single-family_attached.csv')
-# df = pd.read_csv('resloadny/update8/up08-ny-multi-family_with_5plus_units.csv')
-# df = pd.read_csv('resloadny/update8/up08-ny-multi-family_with_2_-_4_units.csv')
-# df = pd.read_csv('resloadny/update8/up08-ny-mobile_home.csv')
+	df = pd.read_csv('Data/Load/resloadny/update'+str(update)+'/up0'+str(update)+'-ny-'+ht+'.csv')
+# df = pd.read_csv('Data/Load/resloadny/update8/up08-ny-single-family_detached.csv')
+# df = pd.read_csv('Data/Load/resloadny/update8/up08-ny-single-family_attached.csv')
+# df = pd.read_csv('Data/Load/resloadny/update8/up08-ny-multi-family_with_5plus_units.csv')
+# df = pd.read_csv('Data/Load/resloadny/update8/up08-ny-multi-family_with_2_-_4_units.csv')
+# df = pd.read_csv('Data/Load/resloadny/update8/up08-ny-mobile_home.csv')
 	df['timestamp'] = pd.to_datetime(df['timestamp'])
 	df.set_index('timestamp', inplace=True)
 	Nunits = df['units_represented'].values[1]
@@ -72,7 +72,7 @@ plt.plot(allY)
 plt.plot(totalY)
 plt.show()
 
-	# np.savetxt('resloadny/Heatload_CT/heatload_'+ht)
+	# np.savetxt('Data/Load/resloadny/Heatload_CT/heatload_'+ht)
 	# np.savetxt('Heat2LoadFit/coeff_'+str(update)+'.txt',coeffs)
 
 # mu, std = beta.fit(df['Error'])

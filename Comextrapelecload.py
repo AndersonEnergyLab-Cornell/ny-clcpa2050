@@ -61,7 +61,7 @@ for scenario in range(1,160):
 			sc = StandardScaler()
 			# x_input = sc.fit_transform(xx)
 			x_input = xx
-			filename = 'comloadny/annWeather2Elec/annw2e_'+ct+'_model.sav'
+			filename = 'Data/Load/comloadny/annWeather2Elec/annw2e_'+ct+'_model.sav'
 			model = pickle.load(open(filename, 'rb'))
 			Y_output = model.predict(x_input)
 			# np.savetxt('Load/ResLoad/'+str(year)+'/elecload_'+ ct+'.txt',Y_output)
