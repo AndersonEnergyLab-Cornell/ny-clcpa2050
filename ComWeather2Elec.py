@@ -22,7 +22,6 @@ counties = tt['nhgis_county_gisjoin'].unique()
 for ct in counties:
 	print(ct)
 	weather = pd.read_csv('Data/Load/comloadny/weather/'+ct+'_2018.csv')
-# weather = pd.read_csv('Data/Load/resloadny/weather/G3600010_tmy3.csv')
 	weather['date_time'] = pd.to_datetime(weather['date_time'])
 	weather['hour_of_day'] = weather['date_time'].dt.hour
 	ct = 'g'+ct[1:]

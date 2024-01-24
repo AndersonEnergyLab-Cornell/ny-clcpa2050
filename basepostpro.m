@@ -59,7 +59,7 @@ for year = 1997+3
         SolarDPV = round(SolarDPV,2);
         Wind = round(Wind,2);
 
-        load('mpc2050.mat')
+        load('Data/mpc2050.mat')
         nt = 8760;
 
 
