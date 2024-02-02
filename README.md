@@ -1,5 +1,5 @@
 # ny-clcpa2050
-This Github repository holds the code and sample data for the CLCPA climate-energy policy analysis for the New York State. For the full dataset, please refer to the Data section below. 
+This Github repository holds the code and sample data for the Climate Leadership and Community Protection Act (CLCPA) climate-energy policy analysis for the New York State. For the full dataset, please refer to the Data section below. 
 
 
 ## Table of Contents
@@ -12,6 +12,7 @@ This Github repository holds the code and sample data for the CLCPA climate-ener
 
 The simulation used the following Dataset and toolkits to assist the analysis:
 
+- Policy Data: CLCPA Scoping plan [https://climate.ny.gov/resources/scoping-plan/]
 - Modern-Era Retrospective analysis for Research and Applications, Version 2 [https://gmao.gsfc.nasa.gov/reanalysis/MERRA-2/]
 - Solar Integration National Dataset Toolkit [https://www.nrel.gov/grid/sind-toolkit.html]
 - Wind Integration National Dataset Toolkit [https://www.nrel.gov/grid/wind-toolkit.html]
